@@ -123,9 +123,7 @@ const translations = {
 
 let currentLanguage = localStorage.getItem("apoyoIdioma") || "es";
 
-if (!translations[currentLanguage]) {
-  currentLanguage = "es";
-}
+if (!translations[currentLanguage]) currentLanguage = "es";
 
 function translatePage() {
   const t = translations[currentLanguage];
@@ -138,10 +136,7 @@ function translatePage() {
   });
 
   if (search) search.placeholder = t.search;
-
-  if (languageSelect) {
-    languageSelect.value = currentLanguage;
-  }
+  if (languageSelect) languageSelect.value = currentLanguage;
 
   renderCategories();
   renderResults();
@@ -155,18 +150,22 @@ function getCategoryDescription(category, index) {
   return translations[currentLanguage].categories[index]?.[1] || category.description;
 }
 
-// Llevar al usuario hasta la información de la categoría
+// Desplazamiento automático hacia la información
 function goToResults() {
-  if (!results) return;
+  const target = document.getElementById("results");
 
-  setTimeout(() => {
-    const position = results.getBoundingClientRect().top + window.scrollY - 25;
+  if (!target) return;
 
-    window.scrollTo({
-      top: position,
-      behavior: "smooth"
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const top = target.getBoundingClientRect().top + window.scrollY - 20;
+
+      window.scrollTo({
+        top: Math.max(0, top),
+        behavior: "smooth"
+      });
     });
-  }, 250);
+  });
 }
 
 function renderCategories() {
@@ -187,11 +186,12 @@ function renderCategories() {
     button.addEventListener("click", () => {
       const index = Number(button.dataset.category);
 
-      selected = categories[index].name;
+      selected = selected === categories[index].name
+        ? ""
+        : categories[index].name;
 
       renderCategories();
       renderResults();
-
       goToResults();
     });
   });
@@ -248,19 +248,12 @@ function renderResults() {
 if (languageSelect) {
   languageSelect.addEventListener("change", event => {
     currentLanguage = event.target.value;
-
     localStorage.setItem("apoyoIdioma", currentLanguage);
-
     translatePage();
   });
 }
 
-if (search) {
-  search.addEventListener("input", renderResults);
-}
-
-if (city) {
-  city.addEventListener("change", renderResults);
-}
+if (search) search.addEventListener("input", renderResults);
+if (city) city.addEventListener("change", renderResults);
 
 translatePage();

@@ -123,6 +123,10 @@ const translations = {
 
 let currentLanguage = localStorage.getItem("apoyoIdioma") || "es";
 
+if (!translations[currentLanguage]) {
+  currentLanguage = "es";
+}
+
 function translatePage() {
   const t = translations[currentLanguage];
 
@@ -133,7 +137,7 @@ function translatePage() {
     if (t[key]) element.textContent = t[key];
   });
 
-  search.placeholder = t.search;
+  if (search) search.placeholder = t.search;
 
   if (languageSelect) {
     languageSelect.value = currentLanguage;
@@ -144,21 +148,35 @@ function translatePage() {
 }
 
 function getCategoryName(category, index) {
-  const t = translations[currentLanguage];
-  return t.categories[index]?.[0] || category.name;
+  return translations[currentLanguage].categories[index]?.[0] || category.name;
 }
 
 function getCategoryDescription(category, index) {
-  const t = translations[currentLanguage];
-  return t.categories[index]?.[1] || category.description;
+  return translations[currentLanguage].categories[index]?.[1] || category.description;
+}
+
+// Llevar al usuario hasta la información de la categoría
+function goToResults() {
+  if (!results) return;
+
+  setTimeout(() => {
+    const position = results.getBoundingClientRect().top + window.scrollY - 25;
+
+    window.scrollTo({
+      top: position,
+      behavior: "smooth"
+    });
+  }, 250);
 }
 
 function renderCategories() {
   if (!grid || typeof categories === "undefined") return;
 
   grid.innerHTML = categories.map((category, index) => `
-    <button class="category-card ${selected === category.name ? "active" : ""}"
-      data-category="${index}" type="button">
+    <button
+      class="category-card ${selected === category.name ? "active" : ""}"
+      data-category="${index}"
+      type="button">
       <span class="category-icon">${category.icon}</span>
       <strong>${getCategoryName(category, index)}</strong>
       <small>${getCategoryDescription(category, index)}</small>
@@ -169,20 +187,12 @@ function renderCategories() {
     button.addEventListener("click", () => {
       const index = Number(button.dataset.category);
 
-      selected = selected === categories[index].name
-        ? ""
-        : categories[index].name;
+      selected = categories[index].name;
 
       renderCategories();
       renderResults();
 
-      // Desplazamiento automático hasta la información
-      setTimeout(() => {
-        results.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }, 300);
+      goToResults();
     });
   });
 }
@@ -190,8 +200,8 @@ function renderCategories() {
 function renderResults() {
   if (!results || typeof resources === "undefined") return;
 
-  const term = search.value.toLowerCase().trim();
-  const selectedCity = city.value;
+  const term = search ? search.value.toLowerCase().trim() : "";
+  const selectedCity = city ? city.value : "";
 
   const filtered = resources.filter(resource => {
     const matchesCategory = !selected || resource.category === selected;
@@ -238,12 +248,19 @@ function renderResults() {
 if (languageSelect) {
   languageSelect.addEventListener("change", event => {
     currentLanguage = event.target.value;
+
     localStorage.setItem("apoyoIdioma", currentLanguage);
+
     translatePage();
   });
 }
 
-search.addEventListener("input", renderResults);
-city.addEventListener("change", renderResults);
+if (search) {
+  search.addEventListener("input", renderResults);
+}
+
+if (city) {
+  city.addEventListener("change", renderResults);
+}
 
 translatePage();

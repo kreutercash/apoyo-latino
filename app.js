@@ -168,6 +168,7 @@ function renderCategories() {
   grid.querySelectorAll("[data-category]").forEach(button => {
     button.addEventListener("click", () => {
       const index = Number(button.dataset.category);
+
       selected = selected === categories[index].name
         ? ""
         : categories[index].name;
@@ -175,13 +176,13 @@ function renderCategories() {
       renderCategories();
       renderResults();
 
-      // Bajar automáticamente hasta los resultados
+      // Desplazamiento automático hasta la información
       setTimeout(() => {
         results.scrollIntoView({
           behavior: "smooth",
           block: "start"
         });
-      }, 150);
+      }, 300);
     });
   });
 }

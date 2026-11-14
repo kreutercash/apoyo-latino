@@ -174,6 +174,14 @@ function renderCategories() {
 
       renderCategories();
       renderResults();
+
+      // Bajar automáticamente hasta los resultados
+      setTimeout(() => {
+        results.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }, 150);
     });
   });
 }

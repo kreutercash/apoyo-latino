@@ -4,12 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Apoyo Latino: orientación y recursos para migrantes.">
+  <meta name="description" content="Apoyo Latino: orientación, recursos y oportunidades para migrantes.">
   <meta name="author" content="Kreuter Ciccarelli">
   <meta name="theme-color" content="#17324d">
 
   <title>Apoyo Latino | Por una mejor calidad de vida</title>
-
   <link rel="stylesheet" href="styles.css">
 
   <style>
@@ -37,37 +36,155 @@
       gap: 12px;
     }
 
-    .social-links {
+    .community-section {
+      padding: 55px 20px;
+      margin: 35px 0;
+      border-radius: 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #eaf3fb, #f5f9fc);
+    }
+
+    .community-section h2 {
+      color: #17324d;
+      margin-bottom: 12px;
+    }
+
+    .community-section p {
+      max-width: 620px;
+      margin: 0 auto 22px;
+      line-height: 1.7;
+    }
+
+    .social-container {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: stretch;
       flex-wrap: wrap;
-      gap: 12px;
-      margin: 18px 0;
+      gap: 16px;
+      margin-top: 28px;
     }
 
-    .social-links a {
-      display: inline-block;
-      padding: 10px 18px;
-      border: 1px solid #dce3ea;
-      border-radius: 9px;
+    .social-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 150px;
+      min-height: 130px;
+      padding: 20px 14px;
+      background: white;
+      color: #17324d;
       text-decoration: none;
-      font-weight: 600;
-      color: inherit;
-      transition: background 0.2s ease;
+      border: 1px solid #e1e8ef;
+      border-radius: 16px;
+      box-shadow: 0 5px 18px rgba(23, 50, 77, 0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .social-links a:hover {
-      background: #eaf2f8;
+    .social-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(23, 50, 77, 0.12);
     }
 
-    footer {
+    .social-card svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    .social-card strong {
+      font-size: 15px;
+    }
+
+    .social-card small {
+      color: #68798a;
+      font-size: 12px;
+    }
+
+    .whatsapp-card {
+      border-color: #bce9cd;
+    }
+
+    .whatsapp-card svg {
+      color: #25D366;
+    }
+
+    .instagram-card svg {
+      color: #E1306C;
+    }
+
+    .tiktok-card svg {
+      color: #111111;
+    }
+
+    .community-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: 10px;
+      background: #20bd5a;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .community-button:hover {
+      background: #159447;
+      transform: translateY(-2px);
+    }
+
+    .community-button svg {
+      width: 23px;
+      height: 23px;
+    }
+
+    .creator-footer {
       text-align: center;
-      padding: 30px 16px;
+      padding: 35px 18px;
+      margin-top: 30px;
     }
 
-    footer p {
-      margin: 10px 0;
+    .creator-footer > strong {
+      font-size: 21px;
+      letter-spacing: 1px;
+    }
+
+    .creator-footer p {
+      margin: 12px 0;
+    }
+
+    .creator-name {
+      color: #2563eb;
+    }
+
+    .footer-tagline {
+      display: block;
+      margin: 12px 0;
+    }
+
+    .footer-note {
+      display: block;
+      margin-top: 22px;
+      font-size: 13px;
+      opacity: 0.75;
+    }
+
+    @media (max-width: 480px) {
+      .social-card {
+        width: 125px;
+      }
+
+      .community-section {
+        padding: 35px 15px;
+      }
+
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
     }
   </style>
 </head>
@@ -219,37 +336,101 @@
       </span>
     </section>
 
+    <!-- COMUNIDAD Y REDES SOCIALES -->
+
+    <section class="community-section" id="comunidad">
+
+      <p class="eyebrow">NUESTRA COMUNIDAD</p>
+
+      <h2>Conectemos y ayudémonos</h2>
+
+      <p>
+        Únete a la comunidad de Apoyo Latino y síguenos en nuestras
+        redes sociales. Compartimos información, orientación,
+        oportunidades y recursos para los migrantes latinoamericanos.
+      </p>
+
+      <a
+        class="community-button"
+        href="https://chat.whatsapp.com/CvBjPrOFbKrAlvIXL3NKSv"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Unirse a la comunidad de WhatsApp"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor"
+          aria-hidden="true">
+          <path d="M20.52 3.48A11.86 11.86 0 0 0 12.08 0C5.5 0 .14 5.36.14 11.94c0 2.1.55 4.15 1.6 5.96L.04 24l6.26-1.64a11.9 11.9 0 0 0 5.78 1.47h.01c6.58 0 11.94-5.36 11.94-11.94 0-3.19-1.24-6.19-3.51-8.41ZM12.08 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.72.98.99-3.63-.23-.37a9.88 9.88 0 0 1-1.52-5.25c0-5.46 4.44-9.9 9.9-9.9a9.82 9.82 0 0 1 7 2.9 9.82 9.82 0 0 1 2.9 7c0 5.46-4.45 9.9-9.91 9.9Zm5.43-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.48s1.08 2.88 1.23 3.08c.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+        </svg>
+        Unirme a la comunidad de WhatsApp
+      </a>
+
+      <h3 style="margin-top:35px;">Síguenos en nuestras redes</h3>
+
+      <div class="social-container">
+
+        <!-- INSTAGRAM -->
+
+        <a
+          class="social-card instagram-card"
+          href="https://www.instagram.com/kreuter_cash/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visitar Instagram de Kreuter"
+        >
+          <svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          <strong>Instagram</strong>
+          <small>@kreuter_cash</small>
+        </a>
+
+        <!-- TIKTOK -->
+
+        <a
+          class="social-card tiktok-card"
+          href="https://www.tiktok.com/@kreutervlog"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visitar TikTok de Kreuter"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor"
+            aria-hidden="true">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.54v13.67a2.89 2.89 0 0 1-2.89 2.89 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .6.05.88.14V9.3a6.44 6.44 0 0 0-.88-.06A6.43 6.43 0 0 0 3 15.67a6.43 6.43 0 0 0 6.43 6.43 6.43 6.43 0 0 0 6.43-6.43V8.73a8.36 8.36 0 0 0 4.88 1.57V6.76a4.8 4.8 0 0 1-1.15-.07Z"/>
+          </svg>
+          <strong>TikTok</strong>
+          <small>@kreutervlog</small>
+        </a>
+
+      </div>
+
+    </section>
+
   </main>
 
-  <footer>
+  <!-- PIE DE PÁGINA -->
+
+  <footer class="creator-footer">
+
     <strong>APOYO LATINO</strong>
 
     <p>
-      <span data-i18n="createdBy">Un proyecto creado por</span>
-      <strong>Kreuter Ciccarelli</strong>.
+      Un proyecto creado por
+      <strong class="creator-name">Kreuter Ciccarelli</strong>.
     </p>
 
-    <p>Por una mejor calidad de vida.</p>
+    <span class="footer-tagline">
+      Por una mejor calidad de vida.
+    </span>
 
-    <div class="social-links">
-      <a
-        href="https://www.instagram.com/kreuter_cash/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Instagram · @kreuter_cash
-      </a>
+    <span class="footer-note">
+      Hecho con solidaridad para la comunidad latinoamericana.
+    </span>
 
-      <a
-        href="https://www.tiktok.com/@kreutervlog"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        TikTok · @kreutervlog
-      </a>
-    </div>
-
-    <span>Hecho con solidaridad.</span>
   </footer>
 
   <script src="data.js"></script>

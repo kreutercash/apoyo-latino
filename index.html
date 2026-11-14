@@ -1,581 +1,887 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Apoyo Latino: orientación, recursos y oportunidades para migrantes.">
-  <meta name="author" content="Kreuter Ciccarelli">
-  <meta name="theme-color" content="#17324d">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apoyo Latino: orientación, recursos y comunidad para migrantes latinoamericanos.">
   <title>Apoyo Latino | Por una mejor calidad de vida</title>
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    .language-select {
-      padding: 9px 12px;
-      border: 1px solid #dce3ea;
-      border-radius: 9px;
-      background: white;
-      color: #17324d;
-      font-weight: 600;
-      cursor: pointer;
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #203040;
     }
 
     .site-header {
+      min-height: 85px;
+      padding: 12px 6%;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
+      background: white;
+      position: relative;
+      z-index: 5;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
       gap: 12px;
-      flex-wrap: wrap;
+      color: #102a43;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo-img {
+      width: 65px;
+      height: 65px;
+      object-fit: contain;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 11px;
+      font-weight: normal;
+      letter-spacing: 0;
+      color: #637381;
+      margin-top: 4px;
     }
 
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 18px;
     }
 
-    /* LOGOTIPO */
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    #language-select {
+      padding: 10px;
+      border: 1px solid #d5e0e5;
+      border-radius: 8px;
+      background: white;
+      font-size: 14px;
+    }
+
+    .header-link {
+      color: #1769aa;
+      font-weight: bold;
       text-decoration: none;
-      color: inherit;
     }
 
-    .brand-logo {
-      display: block;
-      width: 150px;
-      height: 88px;
-      object-fit: contain;
-    }
-
-    .brand-text {
+    .hero {
+      min-height: 540px;
+      padding: 100px 22px;
       display: flex;
       flex-direction: column;
-      color: #17324d;
-      font-weight: 800;
-      letter-spacing: 0.4px;
-    }
-
-    .brand-text small {
-      display: block;
-      margin-top: 5px;
-      color: #68798a;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0;
-    }
-
-    /* COMUNIDAD */
-    .community-section {
-      padding: 55px 20px;
-      margin: 35px 0;
-      border-radius: 20px;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      background: linear-gradient(135deg, #eaf3fb, #f5f9fc);
+      color: white;
+      background:
+        linear-gradient(rgba(5, 25, 42, .65), rgba(5, 25, 42, .72)),
+        url("generated-image.jpg") center center / cover no-repeat;
     }
 
-    .community-section h2 {
-      color: #17324d;
-      margin-bottom: 12px;
+    .hero .eyebrow {
+      color: #a5edc9;
     }
 
-    .community-section p {
-      max-width: 620px;
-      margin: 0 auto 22px;
+    .hero h1 {
+      max-width: 900px;
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: 1.12;
+      color: white;
+      margin: 18px 0;
+    }
+
+    .hero h1 span {
+      color: #a5edc9;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      font-size: 18px;
       line-height: 1.7;
+      margin: 0 auto 28px;
+      color: white;
     }
 
-    /* FOTOGRAFÍA DE LA COMUNIDAD */
-    .community-photo-container {
-      width: min(100%, 950px);
-      margin: 30px auto;
-      overflow: hidden;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(23, 50, 77, 0.12);
-      background: #fff;
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: 800;
+      color: #23966b;
     }
 
-    .community-photo {
+    .button {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 9px;
+      background: #1769aa;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+    }
+
+    .button:hover {
+      opacity: .9;
+    }
+
+    .section {
+      max-width: 1120px;
+      margin: auto;
+      padding: 75px 24px;
+    }
+
+    .section-heading {
+      text-align: center;
+    }
+
+    .section-heading h2,
+    .how h2,
+    .share h2,
+    .community h2 {
+      color: #102a43;
+      font-size: 32px;
+    }
+
+    .section-heading > p:last-child {
+      color: #637381;
+    }
+
+    .filters {
+      display: flex;
+      gap: 12px;
+      max-width: 760px;
+      margin: 28px auto;
+    }
+
+    .filters input,
+    .filters select {
+      padding: 13px;
+      border: 1px solid #ccd8df;
+      border-radius: 8px;
+      font-size: 15px;
+      min-width: 0;
+    }
+
+    .filters input { flex: 1; }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .category {
+      padding: 22px;
+      border: 1px solid #e0e9ed;
+      border-radius: 12px;
+      background: white;
+      text-align: left;
+      cursor: pointer;
+      color: #102a43;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .category:hover,
+    .category.active {
+      border-color: #23966b;
+      background: #f1faf6;
+    }
+
+    .category span {
       display: block;
-      width: 100%;
-      height: auto;
-      max-height: 560px;
-      object-fit: cover;
+      font-size: 27px;
+      margin-bottom: 8px;
     }
 
-    /* REDES SOCIALES */
-    .social-container {
+    .category small {
+      display: block;
+      color: #637381;
+      font-size: 12px;
+      font-weight: normal;
+      margin-top: 6px;
+    }
+
+    .results { margin-top: 24px; }
+
+    .resource {
+      padding: 20px;
+      border-bottom: 1px solid #e5ecef;
+    }
+
+    .resource h3 { color: #102a43; margin-top: 0; }
+
+    .resource p { color: #637381; line-height: 1.6; }
+
+    .resource a { color: #1769aa; font-weight: bold; }
+
+    .empty {
+      padding: 25px;
+      text-align: center;
+      color: #637381;
+      background: #f7f9fa;
+      border-radius: 10px;
+    }
+
+    .how {
+      background: #f7fafb;
+      max-width: none;
+      text-align: center;
+    }
+
+    .steps {
+      max-width: 1000px;
+      margin: 30px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      text-align: left;
+    }
+
+    .steps article {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .steps b { color: #23966b; }
+
+    .steps h3 { color: #102a43; }
+
+    .share {
+      background: #102a43;
+      color: white;
+      padding: 50px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .share h2 { color: white; }
+
+    .share .eyebrow { color: #a5edc9; }
+
+    .button-light {
+      background: white;
+      color: #102a43;
+      white-space: nowrap;
+    }
+
+    .community {
+      padding: 65px 22px;
+      text-align: center;
+      background: #eef6f7;
+    }
+
+    .community p {
+      color: #637381;
+    }
+
+    .social-links {
       display: flex;
       justify-content: center;
-      align-items: stretch;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 18px;
       margin-top: 28px;
     }
 
     .social-card {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 150px;
-      min-height: 130px;
-      padding: 20px 14px;
+      gap: 12px;
+      min-width: 190px;
+      padding: 17px 22px;
       background: white;
-      color: #17324d;
+      color: #102a43;
       text-decoration: none;
-      border: 1px solid #e1e8ef;
-      border-radius: 16px;
-      box-shadow: 0 5px 18px rgba(23, 50, 77, 0.06);
-      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 12px;
+      font-weight: bold;
+      box-shadow: 0 3px 12px rgba(0,0,0,.05);
     }
 
-    .social-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(23, 50, 77, 0.12);
+    .social-card:hover { transform: translateY(-2px); }
+
+    .social-icon {
+      font-size: 27px;
     }
 
-    .social-card svg {
-      width: 36px;
-      height: 36px;
-    }
-
-    .social-card strong {
-      font-size: 15px;
-    }
-
-    .social-card small {
-      color: #68798a;
-      font-size: 12px;
-    }
-
-    .whatsapp-card {
-      border-color: #bce9cd;
-    }
-
-    .whatsapp-card svg {
-      color: #25D366;
-    }
-
-    .instagram-card svg {
-      color: #E1306C;
-    }
-
-    .tiktok-card svg {
-      color: #111111;
-    }
-
-    /* BOTÓN WHATSAPP */
-    .community-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 24px;
-      border-radius: 10px;
-      background: #20bd5a;
+    .whatsapp-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 25px;
+      border-radius: 9px;
+      background: #20b968;
       color: white;
       text-decoration: none;
-      font-weight: 700;
-      transition: background 0.2s, transform 0.2s;
+      font-weight: bold;
     }
 
-    .community-button:hover {
-      background: #159447;
-      transform: translateY(-2px);
-    }
-
-    .community-button svg {
-      width: 23px;
-      height: 23px;
-    }
-
-    /* PIE DE PÁGINA */
-    .creator-footer {
-      text-align: center;
-      padding: 35px 18px;
-      margin-top: 30px;
-    }
-
-    .creator-footer > strong {
-      font-size: 21px;
-      letter-spacing: 1px;
-    }
-
-    .creator-footer p {
-      margin: 12px 0;
-    }
-
-    .creator-name {
-      color: #2563eb;
-    }
-
-    .footer-tagline {
-      display: block;
-      margin: 12px 0;
-    }
-
-    .footer-note {
-      display: block;
-      margin-top: 22px;
+    .notice {
+      max-width: 1050px;
+      margin: 30px auto;
+      padding: 0 24px;
+      color: #637381;
       font-size: 13px;
-      opacity: 0.75;
+      line-height: 1.7;
     }
 
-    /* ADAPTACIÓN A MÓVILES */
-    @media (max-width: 480px) {
-      .brand-logo {
-        width: 105px;
-        height: 68px;
-      }
+    footer {
+      padding: 30px 6%;
+      background: #091d30;
+      color: #dbe6ec;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
 
-      .brand-text {
-        font-size: 14px;
-      }
+    footer span { color: #aebec8; }
 
-      .brand-text small {
-        font-size: 11px;
-      }
-
-      .community-photo-container {
-        margin: 22px auto;
-        border-radius: 12px;
-      }
-
-      .social-card {
-        width: 125px;
-      }
-
-      .community-section {
-        padding: 35px 15px;
+    @media(max-width: 700px) {
+      .site-header {
+        flex-wrap: wrap;
+        padding: 12px 18px;
       }
 
       .header-actions {
         width: 100%;
         justify-content: space-between;
       }
+
+      .hero { min-height: 480px; padding: 65px 22px; }
+
+      .category-grid,
+      .steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .share {
+        display: block;
+        padding: 38px 24px;
+      }
+
+      .share .button { margin-top: 15px; }
+
+      .filters { flex-direction: column; }
+
+      .social-links { flex-direction: column; align-items: center; }
+
+      .social-card { width: 100%; max-width: 300px; }
+    }
+
+    @media(max-width: 460px) {
+      .category-grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .brand { font-size: 13px; }
+
+      .logo-img { width: 52px; height: 52px; }
+
+      .hero h1 { font-size: 39px; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ENCABEZADO CON LOGOTIPO -->
-  <header class="site-header">
+<header class="site-header">
 
-    <a class="brand" href="#" aria-label="Apoyo Latino - Inicio">
+  <a class="brand" href="#">
+    <img
+      src="Logotipo%20Apoyo%20Latino.png"
+      alt="Logotipo Apoyo Latino"
+      class="logo-img"
+    >
+    <span>
+      APOYO LATINO
+      <small data-i18n="tagline">Por una mejor calidad de vida</small>
+    </span>
+  </a>
 
-      <img
-        src="images/logo-apoyo-latino.png"
-        alt="Logotipo de Apoyo Latino"
-        class="brand-logo"
-      >
+  <div class="header-actions">
+    <select id="language-select" aria-label="Seleccionar idioma">
+      <option value="es">🇪🇸 Español</option>
+      <option value="it">🇮🇹 Italiano</option>
+      <option value="en">🇬🇧 English</option>
+    </select>
 
-      <span class="brand-text">
-        APOYO LATINO
-        <small>Por una mejor calidad de vida</small>
-      </span>
+    <a class="header-link" href="#recursos" data-i18n="findHelp">
+      Encontrar ayuda
+    </a>
+  </div>
 
+</header>
+
+<main>
+
+  <section class="hero">
+
+    <p class="eyebrow" data-i18n="eyebrow">
+      LATINOS AYUDANDO A LATINOS
+    </p>
+
+    <h1>
+      <span data-i18n="heroLine1">No estás solo.</span><br>
+      <span data-i18n="heroLine2">Estamos para ayudarte.</span>
+    </h1>
+
+    <p class="hero-copy" data-i18n="heroCopy">
+      Un punto de encuentro para encontrar orientación, recursos y oportunidades para comenzar una nueva etapa.
+    </p>
+
+    <a class="button" href="#recursos" data-i18n="explore">
+      Explorar recursos
     </a>
 
-    <div class="header-actions">
+  </section>
 
-      <select id="language-select" class="language-select"
-        aria-label="Select language">
+  <section id="recursos" class="section">
 
-        <option value="es">🇪🇸 Español</option>
-        <option value="en">🇬🇧 English</option>
-        <option value="it">🇮🇹 Italiano</option>
+    <div class="section-heading">
+      <p class="eyebrow" data-i18n="resourcesEyebrow">ENCUENTRA APOYO</p>
+      <h2 data-i18n="resourcesTitle">¿Qué necesitas hoy?</h2>
+      <p data-i18n="resourcesDescription">
+        Consulta las categorías disponibles. La información se irá ampliando y verificando con la comunidad.
+      </p>
+    </div>
 
+    <div class="filters">
+      <input
+        id="search"
+        type="search"
+        placeholder="Buscar por palabra o necesidad…"
+        aria-label="Buscar recursos"
+      >
+
+      <select id="city" aria-label="Filtrar por ciudad">
+        <option value="" data-i18n="allCities">Todas las ciudades</option>
+        <option value="Milano">Milano</option>
       </select>
+    </div>
 
-      <a class="header-link" href="#recursos" data-i18n="findHelp">
-        Encontrar ayuda
+    <div id="categories" class="category-grid"></div>
+
+    <div id="results" class="results" aria-live="polite"></div>
+
+  </section>
+
+  <section class="how section">
+
+    <p class="eyebrow" data-i18n="howEyebrow">CÓMO FUNCIONA</p>
+
+    <h2 data-i18n="howTitle">Una comunidad que se apoya</h2>
+
+    <div class="steps">
+
+      <article>
+        <b>01</b>
+        <h3 data-i18n="step1Title">Busca</h3>
+        <p data-i18n="step1Text">
+          Encuentra información y recursos por categoría y ciudad.
+        </p>
+      </article>
+
+      <article>
+        <b>02</b>
+        <h3 data-i18n="step2Title">Verifica</h3>
+        <p data-i18n="step2Text">
+          Comprueba siempre los datos y contacta directamente con cada entidad.
+        </p>
+      </article>
+
+      <article>
+        <b>03</b>
+        <h3 data-i18n="step3Title">Comparte</h3>
+        <p data-i18n="step3Text">
+          Ayuda a otras personas enviando información útil para revisar.
+        </p>
+      </article>
+
+    </div>
+
+  </section>
+
+  <section class="share">
+
+    <div>
+      <p class="eyebrow" data-i18n="shareEyebrow">TU APORTE CUENTA</p>
+
+      <h2 data-i18n="shareTitle">¿Conoces un recurso útil?</h2>
+
+      <p data-i18n="shareText">
+        Compártelo con Apoyo Latino. Revisaremos la información antes de publicarla.
+      </p>
+    </div>
+
+    <a
+      class="button button-light"
+      href="https://docs.google.com/forms/"
+      target="_blank"
+      rel="noopener"
+      data-i18n="shareButton"
+    >
+      Enviar información
+    </a>
+
+  </section>
+
+  <section class="community">
+
+    <p class="eyebrow" data-i18n="communityEyebrow">ESTAMOS CONECTADOS</p>
+
+    <h2 data-i18n="communityTitle">Únete a nuestra comunidad</h2>
+
+    <p data-i18n="communityText">
+      Conectemos, compartamos información y ayudémonos a construir nuevas oportunidades.
+    </p>
+
+    <a
+      class="whatsapp-button"
+      href="https://chat.whatsapp.com/CvBjPrOFbKrAlvIXL3NKSv"
+      target="_blank"
+      rel="noopener"
+      data-i18n="whatsappButton"
+    >
+      WhatsApp · Unirme a la comunidad
+    </a>
+
+    <div class="social-links">
+
+      <a
+        class="social-card"
+        href="https://www.instagram.com/kreuter_cash/"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="social-icon">📸</span>
+        <span>Instagram<br><small>@kreuter_cash</small></span>
+      </a>
+
+      <a
+        class="social-card"
+        href="https://www.tiktok.com/@kreutervlog"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="social-icon">🎵</span>
+        <span>TikTok<br><small>@kreutervlog</small></span>
       </a>
 
     </div>
-  </header>
 
-  <main>
+  </section>
 
-    <!-- PORTADA -->
-    <section class="hero">
-
-      <p class="eyebrow" data-i18n="eyebrow">
-        LATINOS AYUDANDO A LATINOS
-      </p>
-
-      <h1>
-        <span data-i18n="hero1">No estás solo.</span><br>
-        <span data-i18n="hero2">Estamos para ayudarte.</span>
-      </h1>
-
-      <p class="hero-copy" data-i18n="heroCopy">
-        Un punto de encuentro para encontrar orientación, recursos y oportunidades para comenzar una nueva etapa.
-      </p>
-
-      <a class="button" href="#recursos" data-i18n="explore">
-        Explorar recursos
-      </a>
-
-    </section>
-
-    <!-- RECURSOS -->
-    <section id="recursos" class="section">
-
-      <div class="section-heading">
-
-        <p class="eyebrow" data-i18n="findSupport">
-          ENCUENTRA APOYO
-        </p>
-
-        <h2 data-i18n="needToday">¿Qué necesitas hoy?</h2>
-
-        <p data-i18n="sectionDescription">
-          Consulta las categorías disponibles. La información se irá ampliando y verificando con la comunidad.
-        </p>
-
-      </div>
-
-      <div class="filters">
-
-        <input
-          id="search"
-          type="search"
-          placeholder="Buscar por palabra o necesidad…"
-          aria-label="Buscar recursos"
-        >
-
-        <select id="city" aria-label="Filtrar por ciudad">
-
-          <option value="" data-i18n="allCities">
-            Todas las ciudades
-          </option>
-
-          <option value="Milano">Milano</option>
-
-        </select>
-
-      </div>
-
-      <div id="categories" class="category-grid"></div>
-
-      <div id="results" class="results" aria-live="polite"></div>
-
-    </section>
-
-    <!-- CÓMO FUNCIONA -->
-    <section class="how section">
-
-      <p class="eyebrow" data-i18n="how">CÓMO FUNCIONA</p>
-
-      <h2 data-i18n="community">
-        Una comunidad que se apoya
-      </h2>
-
-      <div class="steps">
-
-        <article>
-          <b>01</b>
-          <h3 data-i18n="step1">Busca</h3>
-          <p data-i18n="step1Text">
-            Encuentra información y recursos por categoría y ciudad.
-          </p>
-        </article>
-
-        <article>
-          <b>02</b>
-          <h3 data-i18n="step2">Verifica</h3>
-          <p data-i18n="step2Text">
-            Comprueba siempre los datos y contacta directamente con cada entidad.
-          </p>
-        </article>
-
-        <article>
-          <b>03</b>
-          <h3 data-i18n="step3">Comparte</h3>
-          <p data-i18n="step3Text">
-            Ayuda a otras personas enviando información útil para revisar.
-          </p>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- COMPARTIR RECURSOS -->
-    <section class="share">
-
-      <div>
-
-        <p class="eyebrow" data-i18n="contribute">
-          TU APORTE CUENTA
-        </p>
-
-        <h2 data-i18n="knowResource">
-          ¿Conoces un recurso útil?
-        </h2>
-
-        <p data-i18n="shareText">
-          Compártelo con Apoyo Latino. Revisaremos la información antes de publicarla.
-        </p>
-
-      </div>
-
-      <a
-        class="button button-light"
-        href="https://docs.google.com/forms/"
-        target="_blank"
-        rel="noopener noreferrer"
-        data-i18n="sendInfo"
-      >
-        Enviar información
-      </a>
-
-    </section>
-
-    <!-- AVISO IMPORTANTE -->
-    <section class="notice">
-
-      <strong data-i18n="important">Importante:</strong>
-
-      <span data-i18n="noticeText">
-        Apoyo Latino es una iniciativa comunitaria gratuita. No sustituye asesoría legal, migratoria ni profesional. Verifica siempre los requisitos, horarios y disponibilidad directamente con cada organización.
-      </span>
-
-    </section>
-
-    <!-- COMUNIDAD Y REDES SOCIALES -->
-    <section class="community-section" id="comunidad">
-
-      <p class="eyebrow">NUESTRA COMUNIDAD</p>
-
-      <h2>Conectemos y ayudémonos</h2>
-
-      <p>
-        Únete a la comunidad de Apoyo Latino y síguenos en nuestras
-        redes sociales. Compartimos información, orientación,
-        oportunidades y recursos para los migrantes latinoamericanos.
-      </p>
-
-      <!-- FOTOGRAFÍA DE LA COMUNIDAD -->
-      <div class="community-photo-container">
-
-        <img
-          src="images/comunidad-apoyo-latino.jpg"
-          alt="Personas de diferentes culturas compartiendo y apoyándose"
-          class="community-photo"
-          loading="lazy"
-        >
-
-      </div>
-
-      <!-- WHATSAPP -->
-      <a
-        class="community-button"
-        href="https://chat.whatsapp.com/CvBjPrOFbKrAlvIXL3NKSv"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Unirse a la comunidad de WhatsApp"
-      >
-
-        <svg viewBox="0 0 24 24" fill="currentColor"
-          aria-hidden="true">
-
-          <path d="M20.52 3.48A11.86 11.86 0 0 0 12.08 0C5.5 0 .14 5.36.14 11.94c0 2.1.55 4.15 1.6 5.96L.04 24l6.26-1.64a11.9 11.9 0 0 0 5.78 1.47h.01c6.58 0 11.94-5.36 11.94-11.94 0-3.19-1.24-6.19-3.51-8.41ZM12.08 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.72.98.99-3.63-.23-.37a9.88 9.88 0 0 1-1.52-5.25c0-5.46 4.44-9.9 9.9-9.9a9.82 9.82 0 0 1 7 2.9 9.82 9.82 0 0 1 2.9 7c0 5.46-4.45 9.9-9.91 9.9Zm5.43-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.48s1.08 2.88 1.23 3.08c.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
-
-        </svg>
-
-        Unirme a la comunidad de WhatsApp
-
-      </a>
-
-      <h3 style="margin-top:35px;">
-        Síguenos en nuestras redes
-      </h3>
-
-      <div class="social-container">
-
-        <!-- INSTAGRAM -->
-        <a
-          class="social-card instagram-card"
-          href="https://www.instagram.com/kreuter_cash/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Visitar Instagram de Kreuter"
-        >
-
-          <svg viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.8"
-            stroke-linecap="round" stroke-linejoin="round"
-            aria-hidden="true">
-
-            <rect x="3" y="3" width="18" height="18" rx="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.5" cy="6.5" r="1"
-              fill="currentColor" stroke="none"/>
-
-          </svg>
-
-          <strong>Instagram</strong>
-          <small>@kreuter_cash</small>
-
-        </a>
-
-        <!-- TIKTOK -->
-        <a
-          class="social-card tiktok-card"
-          href="https://www.tiktok.com/@kreutervlog"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Visitar TikTok de Kreuter"
-        >
-
-          <svg viewBox="0 0 24 24" fill="currentColor"
-            aria-hidden="true">
-
-            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.54v13.67a2.89 2.89 0 0 1-2.89 2.89 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .6.05.88.14V9.3a6.44 6.44 0 0 0-.88-.06A6.43 6.43 0 0 0 3 15.67a6.43 6.43 0 0 0 6.43 6.43 6.43 6.43 0 0 0 6.43-6.43V8.73a8.36 8.36 0 0 0 4.88 1.57V6.76a4.8 4.8 0 0 1-1.15-.07Z"/>
-
-          </svg>
-
-          <strong>TikTok</strong>
-          <small>@kreutervlog</small>
-
-        </a>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <!-- PIE DE PÁGINA -->
-  <footer class="creator-footer">
-
-    <strong>APOYO LATINO</strong>
-
-    <p>
-      Un proyecto creado por
-      <strong class="creator-name">Kreuter Ciccarelli</strong>.
-    </p>
-
-    <span class="footer-tagline">
-      Por una mejor calidad de vida.
+  <section class="notice">
+    <strong data-i18n="important">Importante:</strong>
+    <span data-i18n="noticeText">
+      Apoyo Latino es una iniciativa comunitaria gratuita. No sustituye asesoría legal, migratoria ni profesional. Verifica siempre los requisitos, horarios y disponibilidad directamente con cada organización.
     </span>
+  </section>
 
-    <span class="footer-note">
-      Hecho con solidaridad para la comunidad latinoamericana.
-    </span>
+</main>
 
-  </footer>
+<footer>
+  <strong>APOYO LATINO</strong>
+  <span data-i18n="tagline">Por una mejor calidad de vida</span>
+  <span data-i18n="creator">Un proyecto creado por Kreuter Ciccarelli</span>
+</footer>
 
-  <!-- ARCHIVOS JAVASCRIPT ORIGINALES -->
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+<script src="data.js"></script>
+
+<script>
+const translations = {
+  es: {
+    tagline: "Por una mejor calidad de vida",
+    findHelp: "Encontrar ayuda",
+    eyebrow: "LATINOS AYUDANDO A LATINOS",
+    heroLine1: "No estás solo.",
+    heroLine2: "Estamos para ayudarte.",
+    heroCopy: "Un punto de encuentro para encontrar orientación, recursos y oportunidades para comenzar una nueva etapa.",
+    explore: "Explorar recursos",
+    resourcesEyebrow: "ENCUENTRA APOYO",
+    resourcesTitle: "¿Qué necesitas hoy?",
+    resourcesDescription: "Consulta las categorías disponibles. La información se irá ampliando y verificando con la comunidad.",
+    allCities: "Todas las ciudades",
+    search: "Buscar por palabra o necesidad…",
+    howEyebrow: "CÓMO FUNCIONA",
+    howTitle: "Una comunidad que se apoya",
+    step1Title: "Busca",
+    step1Text: "Encuentra información y recursos por categoría y ciudad.",
+    step2Title: "Verifica",
+    step2Text: "Comprueba siempre los datos y contacta directamente con cada entidad.",
+    step3Title: "Comparte",
+    step3Text: "Ayuda a otras personas enviando información útil para revisar.",
+    shareEyebrow: "TU APORTE CUENTA",
+    shareTitle: "¿Conoces un recurso útil?",
+    shareText: "Compártelo con Apoyo Latino. Revisaremos la información antes de publicarla.",
+    shareButton: "Enviar información",
+    communityEyebrow: "ESTAMOS CONECTADOS",
+    communityTitle: "Únete a nuestra comunidad",
+    communityText: "Conectemos, compartamos información y ayudémonos a construir nuevas oportunidades.",
+    whatsappButton: "WhatsApp · Unirme a la comunidad",
+    important: "Importante:",
+    noticeText: "Apoyo Latino es una iniciativa comunitaria gratuita. No sustituye asesoría legal, migratoria ni profesional. Verifica siempre los requisitos, horarios y disponibilidad directamente con cada organización.",
+    creator: "Un proyecto creado por Kreuter Ciccarelli",
+    moreInfo: "Más información",
+    empty: "Todavía no hay recursos publicados en esta categoría. Estamos preparando y verificando información para compartirla.",
+    categories: {
+      "Documentación": "Documentación",
+      "Alimentos": "Alimentos",
+      "Ropa": "Ropa",
+      "Alojamiento": "Alojamiento",
+      "Empleo": "Empleo",
+      "Asociaciones": "Asociaciones"
+    }
+  },
+
+  it: {
+    tagline: "Per una migliore qualità della vita",
+    findHelp: "Trova aiuto",
+    eyebrow: "LATINOAMERICANI CHE AIUTANO LATINOAMERICANI",
+    heroLine1: "Non sei solo.",
+    heroLine2: "Siamo qui per aiutarti.",
+    heroCopy: "Un punto d'incontro per trovare orientamento, risorse e opportunità per iniziare una nuova fase.",
+    explore: "Esplora le risorse",
+    resourcesEyebrow: "TROVA SUPPORTO",
+    resourcesTitle: "Di cosa hai bisogno oggi?",
+    resourcesDescription: "Consulta le categorie disponibili. Le informazioni saranno ampliate e verificate con la comunità.",
+    allCities: "Tutte le città",
+    search: "Cerca per parola o necessità…",
+    howEyebrow: "COME FUNZIONA",
+    howTitle: "Una comunità che si sostiene",
+    step1Title: "Cerca",
+    step1Text: "Trova informazioni e risorse per categoria e città.",
+    step2Title: "Verifica",
+    step2Text: "Controlla sempre i dati e contatta direttamente ogni organizzazione.",
+    step3Title: "Condividi",
+    step3Text: "Aiuta altre persone inviando informazioni utili da verificare.",
+    shareEyebrow: "IL TUO CONTRIBUTO CONTA",
+    shareTitle: "Conosci una risorsa utile?",
+    shareText: "Condividila con Apoyo Latino. Verificheremo le informazioni prima di pubblicarle.",
+    shareButton: "Invia informazioni",
+    communityEyebrow: "RESTIAMO IN CONTATTO",
+    communityTitle: "Unisciti alla nostra comunità",
+    communityText: "Connettiamoci, condividiamo informazioni e aiutiamoci a costruire nuove opportunità.",
+    whatsappButton: "WhatsApp · Unisciti alla comunità",
+    important: "Importante:",
+    noticeText: "Apoyo Latino è un'iniziativa comunitaria gratuita. Non sostituisce la consulenza legale, migratoria o professionale. Verifica sempre requisiti, orari e disponibilità direttamente con ogni organizzazione.",
+    creator: "Un progetto creato da Kreuter Ciccarelli",
+    moreInfo: "Maggiori informazioni",
+    empty: "Non ci sono ancora risorse pubblicate in questa categoria. Stiamo preparando e verificando le informazioni da condividere.",
+    categories: {
+      "Documentación": "Documentazione",
+      "Alimentos": "Alimentazione",
+      "Ropa": "Abbigliamento",
+      "Alojamiento": "Alloggio",
+      "Empleo": "Lavoro",
+      "Asociaciones": "Associazioni"
+    }
+  },
+
+  en: {
+    tagline: "For a better quality of life",
+    findHelp: "Find help",
+    eyebrow: "LATINOS HELPING LATINOS",
+    heroLine1: "You are not alone.",
+    heroLine2: "We are here to help.",
+    heroCopy: "A meeting point to find guidance, resources and opportunities to start a new chapter.",
+    explore: "Explore resources",
+    resourcesEyebrow: "FIND SUPPORT",
+    resourcesTitle: "What do you need today?",
+    resourcesDescription: "Explore the available categories. Information will be expanded and verified with the community.",
+    allCities: "All cities",
+    search: "Search by word or need…",
+    howEyebrow: "HOW IT WORKS",
+    howTitle: "A community that supports one another",
+    step1Title: "Search",
+    step1Text: "Find information and resources by category and city.",
+    step2Title: "Verify",
+    step2Text: "Always check the details and contact each organization directly.",
+    step3Title: "Share",
+    step3Text: "Help others by submitting useful information for review.",
+    shareEyebrow: "YOUR CONTRIBUTION MATTERS",
+    shareTitle: "Know a useful resource?",
+    shareText: "Share it with Apoyo Latino. We will review the information before publishing it.",
+    shareButton: "Submit information",
+    communityEyebrow: "STAY CONNECTED",
+    communityTitle: "Join our community",
+    communityText: "Let's connect, share information and help each other build new opportunities.",
+    whatsappButton: "WhatsApp · Join the community",
+    important: "Important:",
+    noticeText: "Apoyo Latino is a free community initiative. It does not replace legal, immigration or professional advice. Always verify requirements, opening hours and availability directly with each organization.",
+    creator: "A project created by Kreuter Ciccarelli",
+    moreInfo: "More information",
+    empty: "There are no resources published in this category yet. We are preparing and verifying information to share.",
+    categories: {
+      "Documentación": "Documentation",
+      "Alimentos": "Food assistance",
+      "Ropa": "Clothing",
+      "Alojamiento": "Accommodation",
+      "Empleo": "Employment",
+      "Asociaciones": "Associations"
+    }
+  }
+};
+
+const categoryIcons = {
+  "Documentación": "📄",
+  "Alimentos": "🥫",
+  "Ropa": "👕",
+  "Alojamiento": "🏠",
+  "Empleo": "💼",
+  "Asociaciones": "🤝"
+};
+
+const search = document.getElementById("search");
+const city = document.getElementById("city");
+const grid = document.getElementById("categories");
+const results = document.getElementById("results");
+const languageSelect = document.getElementById("language-select");
+
+let currentLanguage = localStorage.getItem("apoyoIdioma") || "es";
+let selectedCategory = "";
+
+function getLanguageData() {
+  return translations[currentLanguage] || translations.es;
+}
+
+function getCategoryName(category) {
+  return getLanguageData().categories[category] || category;
+}
+
+function getResourceText(resource, field) {
+  const translated = resource.translations &&
+    resource.translations[currentLanguage];
+
+  return (translated && translated[field]) || resource[field] || "";
+}
+
+function translatePage() {
+  const t = getLanguageData();
+
+  document.documentElement.lang = currentLanguage;
+
+  document.querySelectorAll("[data-i18n]").forEach(element => {
+    const key = element.dataset.i18n;
+    if (t[key]) element.textContent = t[key];
+  });
+
+  search.placeholder = t.search;
+  languageSelect.value = currentLanguage;
+
+  renderCategories();
+  renderResults();
+}
+
+function renderCategories() {
+  if (typeof categories === "undefined") return;
+
+  grid.innerHTML = categories.map(category => {
+    const name = getCategoryName(category.name);
+    const description =
+      category.translations &&
+      category.translations[currentLanguage]
+        ? category.translations[currentLanguage].description
+        : category.description;
+
+    return `
+      <button
+        type="button"
+        class="category ${selectedCategory === category.name ? "active" : ""}"
+        data-category="${category.name}"
+      >
+        <span>${category.icon || categoryIcons[category.name] || "📌"}</span>
+        ${name}
+        <small>${description || ""}</small>
+      </button>
+    `;
+  }).join("");
+
+  grid.querySelectorAll("[data-category]").forEach(button => {
+    button.addEventListener("click", () => {
+      const category = button.dataset.category;
+
+      selectedCategory =
+        selectedCategory === category ? "" : category;
+
+      renderCategories();
+      renderResults();
+    });
+  });
+}
+
+function renderResults() {
+  if (typeof resources === "undefined") return;
+
+  const t = getLanguageData();
+  const query = search.value.toLowerCase().trim();
+  const selectedCity = city.value;
+
+  const found = resources.filter(resource => {
+    const name = getResourceText(resource, "name");
+    const description = getResourceText(resource, "description");
+    const category = getResourceText(resource, "category");
+
+    const matchesCategory =
+      !selectedCategory || resource.category === selectedCategory;
+
+    const matchesCity =
+      !selectedCity || resource.city === selectedCity;
+
+    const searchable =
+      `${name} ${description} ${category} ${resource.city}`.toLowerCase();
+
+    return matchesCategory && matchesCity && searchable.includes(query);
+  });
+
+  if (!found.length) {
+    results.innerHTML = `<div class="empty">${t.empty}</div>`;
+    return;
+  }
+
+  results.innerHTML = found.map(resource => {
+    const name = getResourceText(resource, "name");
+    const description = getResourceText(resource, "description");
+    const category = getResourceText(resource, "category");
+
+    return `
+      <article class="resource">
+        <h3>${name}</h3>
+        <p>${description}</p>
+        <small>${category} · ${resource.city || ""}</small>
+        ${resource.url
+          ? `<p><a href="${resource.url}" target="_blank" rel="noopener">${t.moreInfo}</a></p>`
+          : ""}
+      </article>
+    `;
+  }).join("");
+}
+
+languageSelect.addEventListener("change", event => {
+  currentLanguage = event.target.value;
+  localStorage.setItem("apoyoIdioma", currentLanguage);
+  translatePage();
+});
+
+search.addEventListener("input", renderResults);
+city.addEventListener("change", renderResults);
+
+translatePage();
+</script>
 
 </body>
 </html>

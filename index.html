@@ -5,8 +5,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Apoyo Latino: orientación y recursos para migrantes.">
+  <meta name="author" content="Kreuter Ciccarelli">
+  <meta name="theme-color" content="#17324d">
+
   <title>Apoyo Latino | Por una mejor calidad de vida</title>
+
   <link rel="stylesheet" href="styles.css">
+
   <style>
     .language-select {
       padding: 9px 12px;
@@ -17,6 +22,7 @@
       font-weight: 600;
       cursor: pointer;
     }
+
     .site-header {
       display: flex;
       align-items: center;
@@ -24,56 +30,119 @@
       gap: 12px;
       flex-wrap: wrap;
     }
+
     .header-actions {
       display: flex;
       align-items: center;
       gap: 12px;
     }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .social-links a {
+      display: inline-block;
+      padding: 10px 18px;
+      border: 1px solid #dce3ea;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 600;
+      color: inherit;
+      transition: background 0.2s ease;
+    }
+
+    .social-links a:hover {
+      background: #eaf2f8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 16px;
+    }
+
+    footer p {
+      margin: 10px 0;
+    }
   </style>
 </head>
+
 <body>
+
   <header class="site-header">
     <a class="brand" href="#">
       <span class="brand-mark">AL</span>
-      <span>APOYO LATINO
+      <span>
+        APOYO LATINO
         <small>Por una mejor calidad de vida</small>
       </span>
     </a>
+
     <div class="header-actions">
-      <select id="language-select" class="language-select" aria-label="Select language">
+      <select id="language-select" class="language-select"
+        aria-label="Select language">
         <option value="es">🇪🇸 Español</option>
         <option value="en">🇬🇧 English</option>
         <option value="it">🇮🇹 Italiano</option>
       </select>
-      <a class="header-link" href="#recursos" data-i18n="findHelp">Encontrar ayuda</a>
+
+      <a class="header-link" href="#recursos" data-i18n="findHelp">
+        Encontrar ayuda
+      </a>
     </div>
   </header>
 
   <main>
+
     <section class="hero">
-      <p class="eyebrow" data-i18n="eyebrow">LATINOS AYUDANDO A LATINOS</p>
-      <h1><span data-i18n="hero1">No estás solo.</span><br>
+      <p class="eyebrow" data-i18n="eyebrow">
+        LATINOS AYUDANDO A LATINOS
+      </p>
+
+      <h1>
+        <span data-i18n="hero1">No estás solo.</span><br>
         <span data-i18n="hero2">Estamos para ayudarte.</span>
       </h1>
+
       <p class="hero-copy" data-i18n="heroCopy">
         Un punto de encuentro para encontrar orientación, recursos y oportunidades para comenzar una nueva etapa.
       </p>
-      <a class="button" href="#recursos" data-i18n="explore">Explorar recursos</a>
+
+      <a class="button" href="#recursos" data-i18n="explore">
+        Explorar recursos
+      </a>
     </section>
 
     <section id="recursos" class="section">
       <div class="section-heading">
-        <p class="eyebrow" data-i18n="findSupport">ENCUENTRA APOYO</p>
+        <p class="eyebrow" data-i18n="findSupport">
+          ENCUENTRA APOYO
+        </p>
+
         <h2 data-i18n="needToday">¿Qué necesitas hoy?</h2>
-        <p data-i18n="sectionDescription">Consulta las categorías disponibles. La información se irá ampliando y verificando con la comunidad.</p>
+
+        <p data-i18n="sectionDescription">
+          Consulta las categorías disponibles. La información se irá ampliando y verificando con la comunidad.
+        </p>
       </div>
 
       <div class="filters">
-        <input id="search" type="search"
+        <input
+          id="search"
+          type="search"
           placeholder="Buscar por palabra o necesidad…"
-          aria-label="Buscar recursos">
+          aria-label="Buscar recursos"
+        >
+
         <select id="city" aria-label="Filtrar por ciudad">
-          <option value="" data-i18n="allCities">Todas las ciudades</option>
+          <option value="" data-i18n="allCities">
+            Todas las ciudades
+          </option>
           <option value="Milano">Milano</option>
         </select>
       </div>
@@ -84,50 +153,107 @@
 
     <section class="how section">
       <p class="eyebrow" data-i18n="how">CÓMO FUNCIONA</p>
-      <h2 data-i18n="community">Una comunidad que se apoya</h2>
+
+      <h2 data-i18n="community">
+        Una comunidad que se apoya
+      </h2>
+
       <div class="steps">
-        <article><b>01</b><h3 data-i18n="step1">Busca</h3>
-          <p data-i18n="step1Text">Encuentra información y recursos por categoría y ciudad.</p></article>
-        <article><b>02</b><h3 data-i18n="step2">Verifica</h3>
-          <p data-i18n="step2Text">Comprueba siempre los datos y contacta directamente con cada entidad.</p></article>
-        <article><b>03</b><h3 data-i18n="step3">Comparte</h3>
-          <p data-i18n="step3Text">Ayuda a otras personas enviando información útil para revisar.</p></article>
+        <article>
+          <b>01</b>
+          <h3 data-i18n="step1">Busca</h3>
+          <p data-i18n="step1Text">
+            Encuentra información y recursos por categoría y ciudad.
+          </p>
+        </article>
+
+        <article>
+          <b>02</b>
+          <h3 data-i18n="step2">Verifica</h3>
+          <p data-i18n="step2Text">
+            Comprueba siempre los datos y contacta directamente con cada entidad.
+          </p>
+        </article>
+
+        <article>
+          <b>03</b>
+          <h3 data-i18n="step3">Comparte</h3>
+          <p data-i18n="step3Text">
+            Ayuda a otras personas enviando información útil para revisar.
+          </p>
+        </article>
       </div>
     </section>
 
     <section class="share">
       <div>
-        <p class="eyebrow" data-i18n="contribute">TU APORTE CUENTA</p>
-        <h2 data-i18n="knowResource">¿Conoces un recurso útil?</h2>
-        <p data-i18n="shareText">Compártelo con Apoyo Latino. Revisaremos la información antes de publicarla.</p>
+        <p class="eyebrow" data-i18n="contribute">
+          TU APORTE CUENTA
+        </p>
+
+        <h2 data-i18n="knowResource">
+          ¿Conoces un recurso útil?
+        </h2>
+
+        <p data-i18n="shareText">
+          Compártelo con Apoyo Latino. Revisaremos la información antes de publicarla.
+        </p>
       </div>
-      <a class="button button-light" href="https://docs.google.com/forms/" target="_blank" rel="noopener" data-i18n="sendInfo">Enviar información</a>
+
+      <a
+        class="button button-light"
+        href="https://docs.google.com/forms/"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="sendInfo"
+      >
+        Enviar información
+      </a>
     </section>
 
     <section class="notice">
       <strong data-i18n="important">Importante:</strong>
-      <span data-i18n="noticeText">Apoyo Latino es una iniciativa comunitaria gratuita. No sustituye asesoría legal, migratoria ni profesional. Verifica siempre los requisitos, horarios y disponibilidad directamente con cada organización.</span>
+
+      <span data-i18n="noticeText">
+        Apoyo Latino es una iniciativa comunitaria gratuita. No sustituye asesoría legal, migratoria ni profesional. Verifica siempre los requisitos, horarios y disponibilidad directamente con cada organización.
+      </span>
     </section>
+
   </main>
 
-  
-<footer>
-  <strong>APOYO LATINO</strong>
-  <p>Un proyecto creado por <strong>Kreuter Ciccarelli</strong>.</p>
-  <span>Por una mejor calidad de vida.</span>
+  <footer>
+    <strong>APOYO LATINO</strong>
 
-  <div class="social-links">
-    <a href="https://www.instagram.com/kreuter_cash/"
-       target="_blank" rel="noopener">
-      Instagram · @kreuter_cash
-    </a>
+    <p>
+      <span data-i18n="createdBy">Un proyecto creado por</span>
+      <strong>Kreuter Ciccarelli</strong>.
+    </p>
 
-    <a href="https://www.tiktok.com/@kreutervlog"
-       target="_blank" rel="noopener">
-      TikTok · @kreutervlog
-    </a>
-  </div>
+    <p>Por una mejor calidad de vida.</p>
 
-  <span>Hecho con solidaridad.</span>
-</footer>
+    <div class="social-links">
+      <a
+        href="https://www.instagram.com/kreuter_cash/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram · @kreuter_cash
+      </a>
 
+      <a
+        href="https://www.tiktok.com/@kreutervlog"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        TikTok · @kreutervlog
+      </a>
+    </div>
+
+    <span>Hecho con solidaridad.</span>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

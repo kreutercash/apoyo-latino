@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Apoyo Latino: orientación y recursos gratuitos para migrantes latinoamericanos.">
+  <title>Apoyo Latino | Por una mejor calidad de vida</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#"><span class="brand-mark">AL</span><span>APOYO LATINO<small>Por una mejor calidad de vida</small></span></a>
+    <a class="header-link" href="#recursos">Encontrar ayuda</a>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">LATINOS AYUDANDO A LATINOS</p>
+      <h1>No estás solo.<br><span>Estamos para ayudarte.</span></h1>
+      <p class="hero-copy">Un punto de encuentro para encontrar orientación, recursos y oportunidades para comenzar una nueva etapa.</p>
+      <a class="button" href="#recursos">Explorar recursos</a>
+    </section>
+    <section id="recursos" class="section">
+      <div class="section-heading"><p class="eyebrow">ENCUENTRA APOYO</p><h2>¿Qué necesitas hoy?</h2><p>Consulta las categorías disponibles. La información se irá ampliando y verificando con la comunidad.</p></div>
+      <div class="filters">
+        <input id="search" type="search" placeholder="Buscar por palabra o necesidad…" aria-label="Buscar recursos">
+        <select id="city" aria-label="Filtrar por ciudad"><option value="">Todas las ciudades</option><option value="Milano">Milano</option></select>
+      </div>
+      <div id="categories" class="category-grid"></div>
+      <div id="results" class="results" aria-live="polite"></div>
+    </section>
+    <section class="how section">
+      <p class="eyebrow">CÓMO FUNCIONA</p><h2>Una comunidad que se apoya</h2>
+      <div class="steps"><article><b>01</b><h3>Busca</h3><p>Encuentra información y recursos por categoría y ciudad.</p></article><article><b>02</b><h3>Verifica</h3><p>Comprueba siempre los datos y contacta directamente con cada entidad.</p></article><article><b>03</b><h3>Comparte</h3><p>Ayuda a otras personas enviando información útil para revisar.</p></article></div>
+    </section>
+    <section class="share">
+      <div><p class="eyebrow">TU APORTE CUENTA</p><h2>¿Conoces un recurso útil?</h2><p>Compártelo con Apoyo Latino. Revisaremos la información antes de publicarla.</p></div>
+      <a class="button button-light" href="https://docs.google.com/forms/" target="_blank" rel="noopener">Enviar información</a>
+    </section>
+    <section class="notice"><strong>Importante:</strong> Apoyo Latino es una iniciativa comunitaria gratuita. No sustituye asesoría legal, migratoria ni profesional. Verifica siempre los requisitos, horarios y disponibilidad directamente con cada organización.</section>
+  </main>
+  <footer><strong>APOYO LATINO</strong><span>Por una mejor calidad de vida</span><span>Hecho con solidaridad.</span></footer>
+  <script src="data.js"></script><script src="app.js"></script>
+</body>
+</html>
